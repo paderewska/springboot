@@ -30,6 +30,9 @@ public class DemoApplicationTests {
 	@Autowired @Qualifier("germanFormatter")
 	private NumberFormat gf;
 
+	@Autowired @Qualifier("greeting")
+	private Greeting myGreeting;
+
 	@Test
 	public void contextLoads() {
 		int count = context.getBeanDefinitionCount();
@@ -64,6 +67,12 @@ public class DemoApplicationTests {
 		greeting1.setGreeting("What up?");
 		assertEquals("What up?", greeting2.getGreeting());
 		assertTrue(greeting1 == greeting2);
+	}
+
+	@Test
+	public void checkHelloGreeting() {
+		Greeting greeting = context.getBean("helloGreeting", Greeting.class);
+		assertEquals("Hello, World!", greeting.getGreeting());
 	}
 
 }

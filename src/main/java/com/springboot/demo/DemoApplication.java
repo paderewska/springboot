@@ -14,13 +14,5 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-	@Bean
-	public NumberFormat defaultFormatter() {
-		return NumberFormat.getCurrencyInstance();
-	}
 
-	@Bean
-	public NumberFormat germanFormatter() {
-		return NumberFormat.getCurrencyInstance(Locale.GERMANY);
-	}
 }
